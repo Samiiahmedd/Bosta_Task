@@ -6,30 +6,43 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		084768C92CEBDFD900898F26 /* imagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084768C72CEBDFD900898F26 /* imagesCollectionViewCell.swift */; };
+		084768CA2CEBDFD900898F26 /* imagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 084768C82CEBDFD900898F26 /* imagesCollectionViewCell.xib */; };
+		086083A42CEBBD8A000A4FFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086083A32CEBBD8A000A4FFB /* AppDelegate.swift */; };
+		086083A62CEBBD8A000A4FFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086083A52CEBBD8A000A4FFB /* SceneDelegate.swift */; };
+		086083AB2CEBBD8A000A4FFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 086083A92CEBBD8A000A4FFB /* Main.storyboard */; };
+		086083AE2CEBBD8A000A4FFB /* Bosta_Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 086083AC2CEBBD8A000A4FFB /* Bosta_Task.xcdatamodeld */; };
+		086083B02CEBBD8D000A4FFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 086083AF2CEBBD8D000A4FFB /* Assets.xcassets */; };
+		086083B32CEBBD8D000A4FFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 086083B12CEBBD8D000A4FFB /* LaunchScreen.storyboard */; };
+		086083BF2CEBBFBA000A4FFB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086083BD2CEBBFBA000A4FFB /* ProfileViewController.swift */; };
+		086083C02CEBBFBA000A4FFB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086083BE2CEBBFBA000A4FFB /* ProfileViewController.xib */; };
+		086084152CEBCEA0000A4FFB /* GFNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086084142CEBCEA0000A4FFB /* GFNavigationController.swift */; };
+		086084222CEBD61B000A4FFB /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086084202CEBD61B000A4FFB /* AlbumDetailsViewController.swift */; };
+		086084232CEBD61B000A4FFB /* AlbumDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086084212CEBD61B000A4FFB /* AlbumDetailsViewController.xib */; };
+		086084262CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086084242CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.swift */; };
+		086084272CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086084252CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.xib */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		084768C72CEBDFD900898F26 /* imagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagesCollectionViewCell.swift; sourceTree = "<group>"; };
+		084768C82CEBDFD900898F26 /* imagesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = imagesCollectionViewCell.xib; sourceTree = "<group>"; };
 		086083A02CEBBD8A000A4FFB /* Bosta_Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bosta_Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		086083A32CEBBD8A000A4FFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		086083A52CEBBD8A000A4FFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		086083AA2CEBBD8A000A4FFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		086083AD2CEBBD8A000A4FFB /* Bosta_Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bosta_Task.xcdatamodel; sourceTree = "<group>"; };
+		086083AF2CEBBD8D000A4FFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		086083B22CEBBD8D000A4FFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		086083B42CEBBD8D000A4FFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		086083BD2CEBBFBA000A4FFB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		086083BE2CEBBFBA000A4FFB /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		086084142CEBCEA0000A4FFB /* GFNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFNavigationController.swift; sourceTree = "<group>"; };
+		086084202CEBD61B000A4FFB /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
+		086084212CEBD61B000A4FFB /* AlbumDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumDetailsViewController.xib; sourceTree = "<group>"; };
+		086084242CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		086084252CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumDetailsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		086083B52CEBBD8D000A4FFB /* Exceptions for "Bosta_Task" folder in "Bosta_Task" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 0860839F2CEBBD8A000A4FFB /* Bosta_Task */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		086083A22CEBBD8A000A4FFB /* Bosta_Task */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				086083B52CEBBD8D000A4FFB /* Exceptions for "Bosta_Task" folder in "Bosta_Task" target */,
-			);
-			path = Bosta_Task;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0860839D2CEBBD8A000A4FFB /* Frameworks */ = {
@@ -42,10 +55,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		084768C62CEBDFA000898F26 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				084768C72CEBDFD900898F26 /* imagesCollectionViewCell.swift */,
+				084768C82CEBDFD900898F26 /* imagesCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		086083972CEBBD8A000A4FFB = {
 			isa = PBXGroup;
 			children = (
-				086083A22CEBBD8A000A4FFB /* Bosta_Task */,
+				086083BB2CEBBDB6000A4FFB /* Bosta_Task */,
 				086083A12CEBBD8A000A4FFB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +78,140 @@
 				086083A02CEBBD8A000A4FFB /* Bosta_Task.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		086083BB2CEBBDB6000A4FFB /* Bosta_Task */ = {
+			isa = PBXGroup;
+			children = (
+				0860841B2CEBD12C000A4FFB /* Extensions */,
+				086084122CEBCE80000A4FFB /* Components */,
+				0860841A2CEBD113000A4FFB /* Modules */,
+				086083AF2CEBBD8D000A4FFB /* Assets.xcassets */,
+				086083AC2CEBBD8A000A4FFB /* Bosta_Task.xcdatamodeld */,
+				086083B42CEBBD8D000A4FFB /* Info.plist */,
+				086083B12CEBBD8D000A4FFB /* LaunchScreen.storyboard */,
+				086083A92CEBBD8A000A4FFB /* Main.storyboard */,
+				086083BC2CEBBDEF000A4FFB /* AppConfigurations */,
+			);
+			path = Bosta_Task;
+			sourceTree = "<group>";
+		};
+		086083BC2CEBBDEF000A4FFB /* AppConfigurations */ = {
+			isa = PBXGroup;
+			children = (
+				086083A32CEBBD8A000A4FFB /* AppDelegate.swift */,
+				086083A52CEBBD8A000A4FFB /* SceneDelegate.swift */,
+			);
+			path = AppConfigurations;
+			sourceTree = "<group>";
+		};
+		086084122CEBCE80000A4FFB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				086084132CEBCE8C000A4FFB /* GFNavigationController */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		086084132CEBCE8C000A4FFB /* GFNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				086084142CEBCEA0000A4FFB /* GFNavigationController.swift */,
+			);
+			path = GFNavigationController;
+			sourceTree = "<group>";
+		};
+		086084162CEBD0DE000A4FFB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				086084172CEBD0ED000A4FFB /* View */,
+				086084182CEBD0F2000A4FFB /* ViewModel */,
+				086084192CEBD0FF000A4FFB /* Model */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		086084172CEBD0ED000A4FFB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				084768C62CEBDFA000898F26 /* Cell */,
+				086083BD2CEBBFBA000A4FFB /* ProfileViewController.swift */,
+				086083BE2CEBBFBA000A4FFB /* ProfileViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		086084182CEBD0F2000A4FFB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		086084192CEBD0FF000A4FFB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0860841A2CEBD113000A4FFB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				0860841C2CEBD5EC000A4FFB /* AlbumDetails */,
+				086084162CEBD0DE000A4FFB /* Profile */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		0860841B2CEBD12C000A4FFB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0860841C2CEBD5EC000A4FFB /* AlbumDetails */ = {
+			isa = PBXGroup;
+			children = (
+				0860841D2CEBD5F8000A4FFB /* View */,
+				0860841E2CEBD5FE000A4FFB /* ViewModel */,
+				0860841F2CEBD605000A4FFB /* Model */,
+			);
+			path = AlbumDetails;
+			sourceTree = "<group>";
+		};
+		0860841D2CEBD5F8000A4FFB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				086084202CEBD61B000A4FFB /* AlbumDetailsViewController.swift */,
+				086084212CEBD61B000A4FFB /* AlbumDetailsViewController.xib */,
+				086084282CEBDCFA000A4FFB /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0860841E2CEBD5FE000A4FFB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0860841F2CEBD605000A4FFB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		086084282CEBDCFA000A4FFB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				086084242CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.swift */,
+				086084252CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,9 +228,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				086083A22CEBBD8A000A4FFB /* Bosta_Task */,
 			);
 			name = Bosta_Task;
 			packageProductDependencies = (
@@ -122,6 +275,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				086083B32CEBBD8D000A4FFB /* LaunchScreen.storyboard in Resources */,
+				086084232CEBD61B000A4FFB /* AlbumDetailsViewController.xib in Resources */,
+				086084272CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.xib in Resources */,
+				086083B02CEBBD8D000A4FFB /* Assets.xcassets in Resources */,
+				084768CA2CEBDFD900898F26 /* imagesCollectionViewCell.xib in Resources */,
+				086083C02CEBBFBA000A4FFB /* ProfileViewController.xib in Resources */,
+				086083AB2CEBBD8A000A4FFB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,10 +292,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				086083A42CEBBD8A000A4FFB /* AppDelegate.swift in Sources */,
+				086084152CEBCEA0000A4FFB /* GFNavigationController.swift in Sources */,
+				086083BF2CEBBFBA000A4FFB /* ProfileViewController.swift in Sources */,
+				086083AE2CEBBD8A000A4FFB /* Bosta_Task.xcdatamodeld in Sources */,
+				086084222CEBD61B000A4FFB /* AlbumDetailsViewController.swift in Sources */,
+				086084262CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.swift in Sources */,
+				084768C92CEBDFD900898F26 /* imagesCollectionViewCell.swift in Sources */,
+				086083A62CEBBD8A000A4FFB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		086083A92CEBBD8A000A4FFB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				086083AA2CEBBD8A000A4FFB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		086083B12CEBBD8D000A4FFB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				086083B22CEBBD8D000A4FFB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		086083B72CEBBD8D000A4FFB /* Debug */ = {
@@ -335,6 +522,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		086083AC2CEBBD8A000A4FFB /* Bosta_Task.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				086083AD2CEBBD8A000A4FFB /* Bosta_Task.xcdatamodel */,
+			);
+			currentVersion = 086083AD2CEBBD8A000A4FFB /* Bosta_Task.xcdatamodel */;
+			path = Bosta_Task.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 086083982CEBBD8A000A4FFB /* Project object */;
 }
