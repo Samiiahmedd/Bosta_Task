@@ -8,14 +8,12 @@
 import Foundation
 import Moya
 import Combine
-import CombineMoya
 
-//MARK: - PROTOCOLS
+//MARK: - PROTOCOL
 
 protocol UserServicesProtocol {
     func getUser(by id: Int) -> AnyPublisher<User?, Moya.MoyaError>
 }
-
 
 struct UserService: UserServicesProtocol {
     

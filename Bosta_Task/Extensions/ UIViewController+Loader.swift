@@ -24,7 +24,7 @@ extension UIViewController {
     }
     
     func showLoader() {
-        let loaderContainerView = UIView(frame: self.view.bounds)
+        let loaderContainerView = UIView(frame: UIScreen.main.bounds)
         loaderContainerView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         loaderContainerView.tag = 999
         
@@ -44,6 +44,30 @@ extension UIViewController {
             self.loaderView = nil
         }
     }
+
 }
 
 
+extension UIView {
+
+@IBInspectable var borderColor: UIColor? {
+    get {
+        if let color = self.layer.borderColor {
+            return UIColor(cgColor: color)
+        }
+        return nil
+    }
+    set {
+        self.layer.borderColor = newValue?.cgColor
+    }
+}
+
+@IBInspectable var borderWidth: CGFloat {
+    get {
+        return self.layer.borderWidth
+    }
+    set {
+        self.layer.borderWidth = newValue
+    }
+}
+}
