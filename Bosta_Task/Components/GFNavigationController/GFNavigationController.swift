@@ -16,6 +16,6 @@ class GFNavigationController: UINavigationController {
     }
     
     func setUpNavigationController() {
-        self.viewControllers = [AlbumDetailsViewController()]
+        self.viewControllers = [ProfileViewController()]
     }
 }

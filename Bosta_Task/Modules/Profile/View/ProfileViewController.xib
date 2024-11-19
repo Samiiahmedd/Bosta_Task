@@ -10,11 +10,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Bosta_Task" customModuleProvider="target">
             <connections>
-                <outlet property="addressLabel" destination="J1u-qf-QN8" id="I3F-j7-3lj"/>
                 <outlet property="albumsLabel" destination="jmf-Dj-iVe" id="Br3-TB-DSe"/>
                 <outlet property="albumsTableView" destination="iL9-xm-SIk" id="KLl-QM-rfU"/>
+                <outlet property="cityLabel" destination="RtT-PH-SMh" id="wKK-J8-uWc"/>
                 <outlet property="nameLabel" destination="yij-hL-G5I" id="AG6-tB-okT"/>
+                <outlet property="streetLabel" destination="J1u-qf-QN8" id="X3m-Os-BI5"/>
+                <outlet property="suiteLabel" destination="Bh7-GD-pRf" id="5gr-gZ-uIR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="zipCodeLabel" destination="2Dh-bP-NQn" id="zh5-O1-vOY"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -25,26 +28,54 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Nx1-M9-kr7">
                     <rect key="frame" x="12" y="71" width="369" height="735"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sami Ahmed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yij-hL-G5I">
-                            <rect key="frame" x="0.0" y="0.0" width="106" height="21.666666666666668"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yij-hL-G5I">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Damietta,Elroda,Elhassr Streat 20988" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1u-qf-QN8">
-                            <rect key="frame" x="0.0" y="35.666666666666671" width="287" height="20.333333333333329"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="fjq-Fh-4oJ">
+                            <rect key="frame" x="0.0" y="64" width="158" height="100"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WnC-3x-SSo">
+                                    <rect key="frame" x="0.0" y="0.0" width="158" height="50"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1u-qf-QN8">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bh7-GD-pRf">
+                                            <rect key="frame" x="54" y="0.0" width="50" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RtT-PH-SMh">
+                                            <rect key="frame" x="108" y="0.0" width="50" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Dh-bP-NQn">
+                                    <rect key="frame" x="0.0" y="50" width="50" height="50"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Albums" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-Dj-iVe">
-                            <rect key="frame" x="0.0" y="70" width="93.666666666666671" height="21.666666666666671"/>
+                            <rect key="frame" x="0.0" y="178" width="93.666666666666671" height="21.666666666666657"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iL9-xm-SIk">
-                            <rect key="frame" x="0.0" y="105.66666666666669" width="369" height="629.33333333333326"/>
+                            <rect key="frame" x="0.0" y="213.66666666666669" width="369" height="521.33333333333326"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                     </subviews>
