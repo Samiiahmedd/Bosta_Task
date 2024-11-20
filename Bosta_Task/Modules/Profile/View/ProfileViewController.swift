@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController {
         setupView()
         getProfile()
         bindViewModel()
+        bindTableViewInteractions()
     }
     
     //MARK: - FUNCTIONS
@@ -97,14 +98,21 @@ extension ProfileViewController :  UITableViewDelegate, UITableViewDataSource {
         return 50
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedAlbum = viewModel.albums[indexPath.row]
-        let detailVC = AlbumDetailsViewController()
-        let detailViewModel = AlbumsDetailsViewModel()
-        detailVC.albumTitle = selectedAlbum.title
-        detailVC.viewModel = detailViewModel
-        detailViewModel.fetchImages(by: selectedAlbum.id)
-        navigationController?.pushViewController(detailVC, animated: true)
+    //MARK: - CombineCocoa Bindings for Table View
+    
+    func bindTableViewInteractions() {
+        albumsTableView.didSelectRowPublisher
+            .sink { [weak self] indexPath in
+                guard let self = self else { return }
+                let selectedAlbum = self.viewModel.albums[indexPath.row]
+                let detailVC = AlbumDetailsViewController()
+                let detailViewModel = AlbumsDetailsViewModel()
+                detailVC.albumTitle = selectedAlbum.title
+                detailVC.viewModel = detailViewModel
+                detailViewModel.fetchImages(by: selectedAlbum.id)
+                self.navigationController?.pushViewController(detailVC, animated: true)
+            }
+            .store(in: &cancellables)
     }
 }
 
@@ -155,7 +163,8 @@ private extension ProfileViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] albums in
                 guard let self = self else { return }
-                self.albumsTableView.reloadData()
+                let indexPaths = albums.enumerated().map { IndexPath(row: $0.offset, section: 0) }
+                self.albumsTableView.insertRows(at: indexPaths, with: .automatic)
             }
             .store(in: &cancellables)
     }
