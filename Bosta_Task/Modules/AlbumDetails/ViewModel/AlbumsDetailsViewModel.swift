@@ -14,6 +14,7 @@ class AlbumsDetailsViewModel {
     // MARK: - PROPERITES
     
     @Published var images: [ImagesModel] = []
+    @Published var filteredImages: [ImagesModel] = []
     var isLoading: CurrentValueSubject<Bool, Never> = .init(false)
     var errorMessage: CurrentValueSubject<String?, Never> = .init(nil)
     
@@ -26,6 +27,11 @@ class AlbumsDetailsViewModel {
     
     init(imagesServices: ImagesServicesProtocol = ImagesServices()) {
         self.imagesServices = imagesServices
+        $images
+            .sink { [weak self] images in
+                self?.filteredImages = images
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: - FETCH IMAGES
@@ -49,6 +55,16 @@ class AlbumsDetailsViewModel {
                 self?.images = images
             })
             .store(in: &cancellables)
+    }
+    
+    // MARK: - SEARCH FUNCTIONALITY
+    
+    func updateSearchQuery(_ query: String) {
+        if query.isEmpty {
+            filteredImages = images
+        } else {
+            filteredImages = images.filter { $0.title.lowercased().contains(query.lowercased()) }
+        }
     }
 }
 

@@ -70,8 +70,8 @@ private extension ProfileViewController {
     func setupNavigationTitle() {
         self.title = "Profile"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .black
     }
-    
 }
 
 //MARK: - TABLE VIEW
@@ -87,6 +87,7 @@ extension ProfileViewController :  UITableViewDelegate, UITableViewDataSource {
             withIdentifier: AlbumDetailsTableViewCell.identifier,
             for: indexPath
         ) as! AlbumDetailsTableViewCell
+        cell.selectionStyle = .none
         cell.Setup(album:viewModel.albums[indexPath.row])
         return cell
     }

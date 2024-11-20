@@ -43,16 +43,21 @@ extension AlbumDetailsViewController {
     }
     
     func setupNavigationBar() {
-        //Set Navigation Title
         self.title =  albumTitle ?? "Albums"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        //Set SearchBar
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search in images.."
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
+            searchController.obscuresBackgroundDuringPresentation = false
+            searchController.searchBar.placeholder = "Search in images.."
+        
+        searchController.searchBar.textDidChangePublisher
+               .sink { [weak self] searchText in
+                   self?.viewModel.updateSearchQuery(searchText)
+               }
+               .store(in: &cancellables)
+
+            navigationItem.searchController = searchController
+            navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func setupCollectionView() {
@@ -70,16 +75,16 @@ extension AlbumDetailsViewController {
 extension AlbumDetailsViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.images.count
+        return viewModel.filteredImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagesCollectionViewCell.identifier, for: indexPath) as! imagesCollectionViewCell
-        let images = viewModel.images[indexPath.row]
-        cell.setupCell(images: images)
+        let image = viewModel.filteredImages[indexPath.row]
+        cell.setupCell(images: image)
         return cell
+        
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemsPerRow: CGFloat = 3
@@ -130,14 +135,11 @@ private extension AlbumDetailsViewController {
     }
     
     func bindAlbums() {
-        viewModel.$images
+        viewModel.$filteredImages
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] albums in
-                guard let self = self else { return }
-                self.imagesCollectionView.reloadData()
+            .sink { [weak self] _ in
+                self?.imagesCollectionView.reloadData()
             }
             .store(in: &cancellables)
     }
-    
-    
 }
