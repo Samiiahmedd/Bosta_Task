@@ -26,7 +26,8 @@ class AlbumDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        bindCollectionViewInteractions() 
+        bindCollectionViewInteractions()
+        
     }
 }
 
@@ -44,21 +45,21 @@ extension AlbumDetailsViewController {
     }
     
     func setupNavigationBar() {
-        self.title =  albumTitle ?? "Albums"
+        self.title = albumTitle ?? AlbumsDetailsConstants.navigationBarTitle
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let searchController = UISearchController(searchResultsController: nil)
-            searchController.obscuresBackgroundDuringPresentation = false
-            searchController.searchBar.placeholder = "Search in images.."
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = AlbumsDetailsConstants.searchBarPlaceholder
         
         searchController.searchBar.textDidChangePublisher
-               .sink { [weak self] searchText in
-                   self?.viewModel.updateSearchQuery(searchText)
-               }
-               .store(in: &cancellables)
-
-            navigationItem.searchController = searchController
-            navigationItem.hidesSearchBarWhenScrolling = false
+            .sink { [weak self] searchText in
+                self?.viewModel.updateSearchQuery(searchText)
+            }
+            .store(in: &cancellables)
+        
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func setupCollectionView() {
@@ -103,23 +104,23 @@ extension AlbumDetailsViewController : UICollectionViewDelegate, UICollectionVie
     }
     
     //MARK: - COLLECTION VIEW INTERACTIONS
-       
-        func bindCollectionViewInteractions() {
-               imagesCollectionView.didSelectItemPublisher
-                   .sink { [weak self] indexPath in
-                       guard let self = self else { return }
-                       let selectedImageModel = self.viewModel.filteredImages[indexPath.row]
-                       self.viewModel.fetchFullSizeImage(for: selectedImageModel)
-                   }
-                   .store(in: &cancellables)
-               
-               viewModel.selectedImageSubject
-                   .sink { [weak self] image in
-                       self?.navigateToSelectedImageViewController(with: image)
-                   }
-                   .store(in: &cancellables)
-           }
-
+    
+    func bindCollectionViewInteractions() {
+        imagesCollectionView.didSelectItemPublisher
+            .sink { [weak self] indexPath in
+                guard let self = self else { return }
+                let selectedImageModel = self.viewModel.filteredImages[indexPath.row]
+                self.viewModel.fetchFullSizeImage(for: selectedImageModel)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.selectedImageSubject
+            .sink { [weak self] image in
+                self?.navigateToSelectedImageViewController(with: image)
+            }
+            .store(in: &cancellables)
+    }
+    
     func navigateToSelectedImageViewController(with image: UIImage) {
         let selectedImageVC = ImageViewerViewController()
         let ImageViewerVM = ImageViewerViewModel()
@@ -153,10 +154,12 @@ private extension AlbumDetailsViewController {
     }
     
     func bindErrorState() {
-        viewModel.errorMessage.sink { [weak self] errorMessage in
-            guard let self = self,  let _ = errorMessage else { return }
-            AlertManager.showAlert(on: self, title: "Error", message: "Something went wrong")
-        }.store(in: &cancellables)
+        viewModel.errorMessage
+            .sink { [weak self] errorMessage in
+                guard let self = self, let _ = errorMessage else { return }
+                AlertManager.showAlert(on: self, title: AlbumsDetailsConstants.errorAlertTitle, message: AlbumsDetailsConstants.errorAlertMessage)
+            }
+            .store(in: &cancellables)
     }
     
     func bindAlbums() {
@@ -167,4 +170,15 @@ private extension AlbumDetailsViewController {
             }
             .store(in: &cancellables)
     }
+}
+
+//MARK: - CONSTANTS
+
+fileprivate struct AlbumsDetailsConstants {
+    static let collectionViewItemsPerRow: CGFloat = 3
+    static let collectionViewMinimumSpacing: CGFloat = 0
+    static let searchBarPlaceholder = "Search in images..."
+    static let navigationBarTitle = "Albums"
+    static let errorAlertTitle = "Error"
+    static let errorAlertMessage = "Something went wrong"
 }

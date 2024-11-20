@@ -317,8 +317,8 @@
 		0860841A2CEBD113000A4FFB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				08AFF84E2CEE3E0F00615615 /* ImageViewer */,
 				086084162CEBD0DE000A4FFB /* Profile */,
+				08AFF84E2CEE3E0F00615615 /* ImageViewer */,
 				0860841C2CEBD5EC000A4FFB /* AlbumDetails */,
 			);
 			path = Modules;

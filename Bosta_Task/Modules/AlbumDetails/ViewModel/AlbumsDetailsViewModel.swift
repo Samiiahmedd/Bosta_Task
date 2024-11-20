@@ -18,7 +18,7 @@ class AlbumsDetailsViewModel {
     private var searchQueryPublisher: PassthroughSubject<String, Never> = .init()
     var isLoading: CurrentValueSubject<Bool, Never> = .init(false)
     var errorMessage: CurrentValueSubject<String?, Never> = .init(nil)
-    var selectedImageSubject = PassthroughSubject<UIImage, Never>() 
+    var selectedImageSubject = PassthroughSubject<UIImage, Never>()
 
     
     // MARK: - DEPENDANCIES

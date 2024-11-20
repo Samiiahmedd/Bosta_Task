@@ -7,7 +7,6 @@
 
 import UIKit
 
-@MainActor
 extension UIViewController {
     
     private struct AssociatedKeys {

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -10,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlbumDetailsViewController" customModule="Bosta_Task" customModuleProvider="target">
             <connections>
-                <outlet property="imagesCollectionView" destination="4qQ-YK-6dQ" id="a9X-Uz-YzW"/>
+                <outlet property="imagesCollectionView" destination="laq-vt-Hw4" id="HOr-Wl-LNJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,10 +20,10 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="4qQ-YK-6dQ">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="laq-vt-Hw4">
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ymE-BU-CfS">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YEy-Sn-0E7">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -33,10 +34,10 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="4qQ-YK-6dQ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="2GV-W1-bFF"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="4qQ-YK-6dQ" secondAttribute="bottom" id="3De-Oj-nrs"/>
-                <constraint firstItem="4qQ-YK-6dQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KKC-7U-drJ"/>
-                <constraint firstItem="4qQ-YK-6dQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="VlC-V1-9kX"/>
+                <constraint firstItem="laq-vt-Hw4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KPS-uy-QTI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="laq-vt-Hw4" secondAttribute="bottom" id="QQJ-Av-LZV"/>
+                <constraint firstItem="laq-vt-Hw4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="idE-In-wxO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="laq-vt-Hw4" secondAttribute="trailing" id="y5X-zj-ikT"/>
             </constraints>
             <point key="canvasLocation" x="136.64122137404578" y="20.422535211267608"/>
         </view>

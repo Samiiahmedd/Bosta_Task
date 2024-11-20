@@ -63,24 +63,25 @@ private extension ProfileViewController {
     
     func registerCells() {
         albumsTableView.register(
-            UINib(nibName: AlbumDetailsTableViewCell.identifier, bundle: nil),
-            forCellReuseIdentifier: AlbumDetailsTableViewCell.identifier
+            UINib(nibName: ProfileConstants.cellNibName, bundle: nil),
+            forCellReuseIdentifier: ProfileConstants.cellReuseIdentifier
         )
     }
     
     func setupNavigationTitle() {
-        self.title = "Profile"
+        self.title = ProfileConstants.navigationTitle
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .black
     }
     
     func setupTableViewHeader() {
         let headerView = UIView()
-        headerView.backgroundColor = .white
+        headerView.backgroundColor = ProfileConstants.headerBackgroundColor
+        
         let titleLabel = UILabel()
-        titleLabel.text = "My Albums"
-        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        titleLabel.textColor = .black
+        titleLabel.text = ProfileConstants.headerTitle
+        titleLabel.font = ProfileConstants.headerFont
+        titleLabel.textColor = ProfileConstants.headerTextColor
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         headerView.addSubview(titleLabel)
         
@@ -89,7 +90,7 @@ private extension ProfileViewController {
             titleLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
         ])
         albumsTableView.tableHeaderView = headerView
-        albumsTableView.tableHeaderView?.frame.size.height = 30
+        albumsTableView.tableHeaderView?.frame.size.height = ProfileConstants.headerHeight
     }
 }
 
@@ -103,16 +104,16 @@ extension ProfileViewController :  UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = albumsTableView.dequeueReusableCell(
-            withIdentifier: AlbumDetailsTableViewCell.identifier,
+            withIdentifier: ProfileConstants.cellReuseIdentifier,
             for: indexPath
         ) as! AlbumDetailsTableViewCell
-        cell.selectionStyle = .none
-        cell.Setup(album:viewModel.albums[indexPath.row])
+        cell.selectionStyle = ProfileConstants.cellSelectionStyle
+        cell.Setup(album: viewModel.albums[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return ProfileConstants.tableRowHeight
     }
     
     //MARK: - TABLE VIEW INTERACTIONS
@@ -187,3 +188,19 @@ private extension ProfileViewController {
     }
 }
 
+//MARK: - CONSTANTS
+
+fileprivate struct ProfileConstants {
+    static let navigationTitle = "Profile"
+    static let headerTitle = "My Albums"
+    static let headerFont = UIFont.systemFont(ofSize: 18, weight: .semibold)
+    static let headerTextColor = UIColor.black
+    static let headerBackgroundColor = UIColor.white
+    static let headerHeight: CGFloat = 30
+    static let tableRowHeight: CGFloat = 50
+    static let alertTitle = "Error"
+    static let alertMessage = "Something went wrong"
+    static let cellNibName = AlbumDetailsTableViewCell.identifier
+    static let cellReuseIdentifier = AlbumDetailsTableViewCell.identifier
+    static let cellSelectionStyle = UITableViewCell.SelectionStyle.none
+}
