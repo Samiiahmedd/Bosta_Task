@@ -17,8 +17,8 @@ protocol AlbumsServicesProtocol {
 
 struct AlbumsServices:AlbumsServicesProtocol {
     
-    // MARK: - VARIABLES
-    
+    // MARK: - PROPERITES
+
     private let provider = MoyaProvider<AlbumsEndPoint>()
     
     // MARK: - GET ALBUMS

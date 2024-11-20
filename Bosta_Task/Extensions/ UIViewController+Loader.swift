@@ -44,30 +44,5 @@ extension UIViewController {
             self.loaderView = nil
         }
     }
-
 }
 
-
-extension UIView {
-
-@IBInspectable var borderColor: UIColor? {
-    get {
-        if let color = self.layer.borderColor {
-            return UIColor(cgColor: color)
-        }
-        return nil
-    }
-    set {
-        self.layer.borderColor = newValue?.cgColor
-    }
-}
-
-@IBInspectable var borderWidth: CGFloat {
-    get {
-        return self.layer.borderWidth
-    }
-    set {
-        self.layer.borderWidth = newValue
-    }
-}
-}

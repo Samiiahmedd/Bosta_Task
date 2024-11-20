@@ -17,8 +17,8 @@ protocol UserServicesProtocol {
 
 struct UserService: UserServicesProtocol {
     
-    // MARK: - VARIABLES
-    
+    // MARK: - PROPERITES
+
     private let provider = MoyaProvider<UserEndPoint>()
     
     // MARK: - GET USER

@@ -14,7 +14,7 @@ class imagesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    //MARK: - VARIABLES
+    //MARK: - PROPIRITES
     
     static let identifier = String(describing: imagesCollectionViewCell.self)
 }
@@ -24,7 +24,7 @@ class imagesCollectionViewCell: UICollectionViewCell {
 extension imagesCollectionViewCell {
     
     //MARK: - SETUP CELL
-
+    
     func setupCell(images: ImagesModel) {
         let imageUrl = images.url.asUrl
         imageView.kf.setImage(with: imageUrl)

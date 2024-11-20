@@ -15,6 +15,7 @@ enum AlbumsEndPoint {
 }
 
 extension AlbumsEndPoint: Moya.TargetType {
+    
     var baseURL: URL {
         return URL(string: Constants.baseURL)!
         

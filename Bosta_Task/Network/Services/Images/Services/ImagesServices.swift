@@ -16,12 +16,13 @@ protocol ImagesServicesProtocol {
 }
 
 struct ImagesServices:ImagesServicesProtocol {
-     
-    // MARK: - VARIABLES
+    
+    // MARK: - PROPERITES
     
     private let provider = MoyaProvider<ImagesEndPoint>()
     
     // MARK: - GET IMAGES
+    
     func getAlbums(by albumId: Int) -> AnyPublisher<[ImagesModel], Moya.MoyaError> {
         provider.requestPublisher(.getImages(albumId: albumId))
             .map(\.data)

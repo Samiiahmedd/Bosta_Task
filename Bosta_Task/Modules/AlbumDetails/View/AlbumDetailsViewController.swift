@@ -26,6 +26,7 @@ class AlbumDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        bindCollectionViewInteractions() 
     }
 }
 
@@ -103,15 +104,29 @@ extension AlbumDetailsViewController : UICollectionViewDelegate, UICollectionVie
     
     //MARK: - COLLECTION VIEW INTERACTIONS
        
-       func bindCollectionViewInteractions() {
-           imagesCollectionView.didSelectItemPublisher
-               .sink { [weak self] indexPath in
-                   guard let self = self else { return }
-                   let selectedImage = self.viewModel.filteredImages[indexPath.row]
-                   // BOUNUS : - NANIGATE TO SELECTED IMAGE (ZOOM AND SHARING )
-               }
-               .store(in: &cancellables)
-       }
+        func bindCollectionViewInteractions() {
+               imagesCollectionView.didSelectItemPublisher
+                   .sink { [weak self] indexPath in
+                       guard let self = self else { return }
+                       let selectedImageModel = self.viewModel.filteredImages[indexPath.row]
+                       self.viewModel.fetchFullSizeImage(for: selectedImageModel)
+                   }
+                   .store(in: &cancellables)
+               
+               viewModel.selectedImageSubject
+                   .sink { [weak self] image in
+                       self?.navigateToSelectedImageViewController(with: image)
+                   }
+                   .store(in: &cancellables)
+           }
+
+    func navigateToSelectedImageViewController(with image: UIImage) {
+        let selectedImageVC = ImageViewerViewController()
+        let ImageViewerVM = ImageViewerViewModel()
+        selectedImageVC.viewModel = ImageViewerVM
+        selectedImageVC.viewModel.selectedImage = image
+        self.navigationController?.pushViewController(selectedImageVC, animated: true)
+    }
 }
 
 //MARK: - VIEW MODEL

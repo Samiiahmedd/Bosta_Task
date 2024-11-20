@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -34,6 +34,10 @@
 		086084232CEBD61B000A4FFB /* AlbumDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086084212CEBD61B000A4FFB /* AlbumDetailsViewController.xib */; };
 		086084262CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086084242CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.swift */; };
 		086084272CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086084252CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.xib */; };
+		08AFF8522CEE3E7E00615615 /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFF8502CEE3E7E00615615 /* ImageViewerViewController.swift */; };
+		08AFF8532CEE3E7E00615615 /* ImageViewerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AFF8512CEE3E7E00615615 /* ImageViewerViewController.xib */; };
+		08AFF8562CEE426600615615 /* ImageViewerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFF8552CEE426600615615 /* ImageViewerViewModel.swift */; };
+		08AFF8582CEE4B0E00615615 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFF8572CEE4B0E00615615 /* UIView+Extensions.swift */; };
 		08E46EA52CED271000900F66 /* ImagesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E46EA42CED271000900F66 /* ImagesEndPoint.swift */; };
 		08E46EA92CED272200900F66 /* ImagedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E46EA82CED272200900F66 /* ImagedModel.swift */; };
 		08E46EAB2CED273800900F66 /* ImagesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E46EAA2CED273800900F66 /* ImagesServices.swift */; };
@@ -69,6 +73,10 @@
 		086084212CEBD61B000A4FFB /* AlbumDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumDetailsViewController.xib; sourceTree = "<group>"; };
 		086084242CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		086084252CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		08AFF8502CEE3E7E00615615 /* ImageViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
+		08AFF8512CEE3E7E00615615 /* ImageViewerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewerViewController.xib; sourceTree = "<group>"; };
+		08AFF8552CEE426600615615 /* ImageViewerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerViewModel.swift; sourceTree = "<group>"; };
+		08AFF8572CEE4B0E00615615 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		08E46EA42CED271000900F66 /* ImagesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesEndPoint.swift; sourceTree = "<group>"; };
 		08E46EA82CED272200900F66 /* ImagedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagedModel.swift; sourceTree = "<group>"; };
 		08E46EAA2CED273800900F66 /* ImagesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesServices.swift; sourceTree = "<group>"; };
@@ -157,9 +165,9 @@
 		084768D32CEBE56D00898F26 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				08E46EA32CED270100900F66 /* EndPoint */,
-				08E46EA22CED26FC00900F66 /* Model */,
 				08E46EA12CED26F300900F66 /* Services */,
+				08E46EA22CED26FC00900F66 /* Model */,
+				08E46EA32CED270100900F66 /* EndPoint */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -282,6 +290,7 @@
 		086084162CEBD0DE000A4FFB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				086084282CEBDCFA000A4FFB /* Cell */,
 				086084172CEBD0ED000A4FFB /* View */,
 				086084182CEBD0F2000A4FFB /* ViewModel */,
 			);
@@ -293,7 +302,6 @@
 			children = (
 				086083BD2CEBBFBA000A4FFB /* ProfileViewController.swift */,
 				086083BE2CEBBFBA000A4FFB /* ProfileViewController.xib */,
-				086084282CEBDCFA000A4FFB /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,8 +317,9 @@
 		0860841A2CEBD113000A4FFB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				0860841C2CEBD5EC000A4FFB /* AlbumDetails */,
+				08AFF84E2CEE3E0F00615615 /* ImageViewer */,
 				086084162CEBD0DE000A4FFB /* Profile */,
+				0860841C2CEBD5EC000A4FFB /* AlbumDetails */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -320,6 +329,7 @@
 			children = (
 				084768E62CEC2B0100898F26 /*  UIViewController+Loader.swift */,
 				08E46EB12CED2CEA00900F66 /* String+Extensions.swift */,
+				08AFF8572CEE4B0E00615615 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -327,6 +337,7 @@
 		0860841C2CEBD5EC000A4FFB /* AlbumDetails */ = {
 			isa = PBXGroup;
 			children = (
+				084768C62CEBDFA000898F26 /* Cell */,
 				0860841D2CEBD5F8000A4FFB /* View */,
 				0860841E2CEBD5FE000A4FFB /* ViewModel */,
 			);
@@ -338,7 +349,6 @@
 			children = (
 				086084202CEBD61B000A4FFB /* AlbumDetailsViewController.swift */,
 				086084212CEBD61B000A4FFB /* AlbumDetailsViewController.xib */,
-				084768C62CEBDFA000898F26 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -358,6 +368,32 @@
 				086084252CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		08AFF84E2CEE3E0F00615615 /* ImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				08AFF8542CEE421D00615615 /* ViewModel */,
+				08AFF84F2CEE3E2F00615615 /* View */,
+			);
+			path = ImageViewer;
+			sourceTree = "<group>";
+		};
+		08AFF84F2CEE3E2F00615615 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08AFF8502CEE3E7E00615615 /* ImageViewerViewController.swift */,
+				08AFF8512CEE3E7E00615615 /* ImageViewerViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		08AFF8542CEE421D00615615 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				08AFF8552CEE426600615615 /* ImageViewerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		08E46EA12CED26F300900F66 /* Services */ = {
@@ -426,6 +462,7 @@
 				};
 			};
 			buildConfigurationList = 0860839B2CEBBD8A000A4FFB /* Build configuration list for PBXProject "Bosta_Task" */;
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -439,7 +476,6 @@
 				084768E32CEC27C500898F26 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 				08E46EAE2CED2CA900900F66 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 086083A12CEBBD8A000A4FFB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -456,6 +492,7 @@
 			files = (
 				086083B32CEBBD8D000A4FFB /* LaunchScreen.storyboard in Resources */,
 				086084232CEBD61B000A4FFB /* AlbumDetailsViewController.xib in Resources */,
+				08AFF8532CEE3E7E00615615 /* ImageViewerViewController.xib in Resources */,
 				086084272CEBDCEF000A4FFB /* AlbumDetailsTableViewCell.xib in Resources */,
 				086083B02CEBBD8D000A4FFB /* Assets.xcassets in Resources */,
 				084768CA2CEBDFD900898F26 /* imagesCollectionViewCell.xib in Resources */,
@@ -473,6 +510,7 @@
 			files = (
 				084768E72CEC2B0100898F26 /*  UIViewController+Loader.swift in Sources */,
 				086083A42CEBBD8A000A4FFB /* AppDelegate.swift in Sources */,
+				08AFF8582CEE4B0E00615615 /* UIView+Extensions.swift in Sources */,
 				084768DC2CEBE5B900898F26 /* UserServices.swift in Sources */,
 				084768EB2CEC2EC900898F26 /* AlertManager.swift in Sources */,
 				086084152CEBCEA0000A4FFB /* GFNavigationController.swift in Sources */,
@@ -485,6 +523,8 @@
 				084768D82CEBE5A700898F26 /* UserEndPoint.swift in Sources */,
 				08E46EB22CED2CEA00900F66 /* String+Extensions.swift in Sources */,
 				08E46EA52CED271000900F66 /* ImagesEndPoint.swift in Sources */,
+				08AFF8562CEE426600615615 /* ImageViewerViewModel.swift in Sources */,
+				08AFF8522CEE3E7E00615615 /* ImageViewerViewController.swift in Sources */,
 				080E6DED2CECCE70002A4FD2 /* AlbumsModel.swift in Sources */,
 				084768C92CEBDFD900898F26 /* imagesCollectionViewCell.swift in Sources */,
 				084768DA2CEBE5AE00898F26 /* UserModel.swift in Sources */,
@@ -533,6 +573,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -561,6 +602,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -18,7 +18,6 @@ enum ImagesEndPoint {
 extension ImagesEndPoint: Moya.TargetType {
     var baseURL: URL {
         return URL(string: Constants.baseURL)!
-        
     }
     
     var path: String {

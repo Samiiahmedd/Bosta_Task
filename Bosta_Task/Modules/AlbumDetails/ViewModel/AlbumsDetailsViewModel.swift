@@ -5,7 +5,7 @@
 //  Created by Sami Ahmed on 19/11/2024.
 //
 
-import Foundation
+import UIKit
 import Combine
 import Moya
 
@@ -18,6 +18,8 @@ class AlbumsDetailsViewModel {
     private var searchQueryPublisher: PassthroughSubject<String, Never> = .init()
     var isLoading: CurrentValueSubject<Bool, Never> = .init(false)
     var errorMessage: CurrentValueSubject<String?, Never> = .init(nil)
+    var selectedImageSubject = PassthroughSubject<UIImage, Never>() 
+
     
     // MARK: - DEPENDANCIES
     
@@ -65,6 +67,25 @@ class AlbumsDetailsViewModel {
             })
             .store(in: &cancellables)
     }
+    
+    // MARK: - FETCH FULL-SIZE IMAGE
+        
+        func fetchFullSizeImage(for imageModel: ImagesModel) {
+            guard let imageURL = URL(string: imageModel.url) else {
+                print("Invalid image URL")
+                return
+            }
+            
+            URLSession.shared.dataTask(with: imageURL) { [weak self] data, _, error in
+                guard let data = data, error == nil, let image = UIImage(data: data) else {
+                    print("Failed to fetch image")
+                    return
+                }
+                DispatchQueue.main.async {
+                    self?.selectedImageSubject.send(image)
+                }
+            }.resume()
+        }
     
     // MARK: - SEARCH FUNCTIONALITY
     
