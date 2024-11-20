@@ -63,8 +63,14 @@ extension AlbumDetailsViewController {
     }
     
     func setupCollectionView() {
-        imagesCollectionView.delegate = self
         imagesCollectionView.dataSource = self
+        let layout = UICollectionViewFlowLayout()
+        let itemWidth = UIScreen.main.bounds.width / 3
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        imagesCollectionView.setCollectionViewLayout(layout, animated: false)
     }
     
     func registerCell() {
@@ -74,7 +80,7 @@ extension AlbumDetailsViewController {
 
 //MARK: - COLLECTION VIEW
 
-extension AlbumDetailsViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension AlbumDetailsViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.filteredImages.count
@@ -85,22 +91,6 @@ extension AlbumDetailsViewController : UICollectionViewDelegate, UICollectionVie
         let image = viewModel.filteredImages[indexPath.row]
         cell.setupCell(images: image)
         return cell
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemsPerRow: CGFloat = 3
-        let availableWidth = collectionView.bounds.width
-        let itemWidth = availableWidth / itemsPerRow
-        return CGSize(width: itemWidth, height: itemWidth)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0 
     }
     
     //MARK: - COLLECTION VIEW INTERACTIONS

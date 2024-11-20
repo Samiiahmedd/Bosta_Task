@@ -19,7 +19,6 @@ class AlbumsDetailsViewModel {
     var isLoading: CurrentValueSubject<Bool, Never> = .init(false)
     var errorMessage: CurrentValueSubject<String?, Never> = .init(nil)
     var selectedImageSubject = PassthroughSubject<UIImage, Never>()
-
     
     // MARK: - DEPENDANCIES
     
@@ -58,7 +57,7 @@ class AlbumsDetailsViewModel {
                 self.isLoading.send(false)
                 switch completionResult {
                 case .finished:
-                    print("Finished fetching images.")
+                    break
                 case .failure(let error):
                     self.handleError(error)
                 }
@@ -69,23 +68,22 @@ class AlbumsDetailsViewModel {
     }
     
     // MARK: - FETCH FULL-SIZE IMAGE
+    
+    func fetchFullSizeImage(for imageModel: ImagesModel) {
+        guard let imageURL = URL(string: imageModel.url) else {
+            return
+        }
         
-        func fetchFullSizeImage(for imageModel: ImagesModel) {
-            guard let imageURL = URL(string: imageModel.url) else {
-                print("Invalid image URL")
+        URLSession.shared.dataTask(with: imageURL) { [weak self] data, _, error in
+            guard let data = data, error == nil, let image = UIImage(data: data) else {
                 return
             }
-            
-            URLSession.shared.dataTask(with: imageURL) { [weak self] data, _, error in
-                guard let data = data, error == nil, let image = UIImage(data: data) else {
-                    print("Failed to fetch image")
-                    return
-                }
-                DispatchQueue.main.async {
-                    self?.selectedImageSubject.send(image)
-                }
-            }.resume()
-        }
+            DispatchQueue.main.async {
+                self?.selectedImageSubject.send(image)
+            }
+        }.resume()
+    }
+    
     
     // MARK: - SEARCH FUNCTIONALITY
     

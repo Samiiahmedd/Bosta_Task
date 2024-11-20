@@ -121,16 +121,19 @@ extension ProfileViewController :  UITableViewDelegate, UITableViewDataSource {
     func bindTableViewInteractions() {
         albumsTableView.didSelectRowPublisher
             .sink { [weak self] indexPath in
-                guard let self = self else { return }
-                let selectedAlbum = self.viewModel.albums[indexPath.row]
-                let detailVC = AlbumDetailsViewController()
-                let detailViewModel = AlbumsDetailsViewModel()
-                detailVC.albumTitle = selectedAlbum.title
-                detailVC.viewModel = detailViewModel
-                detailViewModel.fetchImages(by: selectedAlbum.id)
-                self.navigationController?.pushViewController(detailVC, animated: true)
+                self?.handleAlbumSelection(at: indexPath)
             }
             .store(in: &cancellables)
+    }
+    
+    private func handleAlbumSelection(at indexPath: IndexPath) {
+        let selectedAlbum = viewModel.albums[indexPath.row]
+        let detailVC = AlbumDetailsViewController()
+        let detailViewModel = AlbumsDetailsViewModel()
+        detailVC.albumTitle = selectedAlbum.title
+        detailVC.viewModel = detailViewModel
+        detailViewModel.fetchImages(by: selectedAlbum.id)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 

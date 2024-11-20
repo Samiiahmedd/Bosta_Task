@@ -44,7 +44,6 @@ class ProfileViewModel {
                 self.isLoading.send(false)
                 switch completionResult {
                 case .finished:
-                    print(user!)
                     break
                 case .failure(let error):
                     self.handleError(error)
@@ -68,7 +67,7 @@ class ProfileViewModel {
                 self.isLoading.send(false)
                 switch completionResult {
                 case .finished:
-                    print("Finished fetching albums.")
+                    break
                 case .failure(let error):
                     self.handleError(error)
                 }

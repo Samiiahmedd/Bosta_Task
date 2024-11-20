@@ -37,19 +37,33 @@ class ImageViewerViewController: UIViewController {
         imageScrollView.minimumZoomScale = 1.0
         imageScrollView.maximumZoomScale = 4.0
         imageScrollView.zoomScale = 1.0
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapDetected))
+        doubleTap.numberOfTapsRequired = 2
+        imageScrollView.addGestureRecognizer(doubleTap)
+    }
+    
+    @objc func doubleTapDetected() {
+        toggleZoom()
+    }
+    
+    func toggleZoom() {
+        let newZoomScale = imageScrollView.zoomScale == imageScrollView.minimumZoomScale ? imageScrollView.maximumZoomScale : imageScrollView.minimumZoomScale
+        imageScrollView.setZoomScale(newZoomScale, animated: true)
     }
     
     func setupBindings() {
+        
         viewModel.$selectedImage
             .sink { [weak self] image in
                 self?.imageView.image = image
             }
             .store(in: &cancellables)
         
+        
         viewModel.$zoomScale
             .sink { [weak self] zoomScale in
                 self?.imageScrollView.zoomScale = zoomScale
-                print("Zoom scale updated: \(zoomScale)")
             }
             .store(in: &cancellables)
         
