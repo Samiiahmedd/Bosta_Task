@@ -100,9 +100,19 @@ extension AlbumDetailsViewController : UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0 
     }
+    
+    //MARK: - COLLECTION VIEW INTERACTIONS
+       
+       func bindCollectionViewInteractions() {
+           imagesCollectionView.didSelectItemPublisher
+               .sink { [weak self] indexPath in
+                   guard let self = self else { return }
+                   let selectedImage = self.viewModel.filteredImages[indexPath.row]
+                   // BOUNUS : - NANIGATE TO SELECTED IMAGE (ZOOM AND SHARING )
+               }
+               .store(in: &cancellables)
+       }
 }
-
-
 
 //MARK: - VIEW MODEL
 

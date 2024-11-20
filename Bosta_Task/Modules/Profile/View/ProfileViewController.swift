@@ -18,7 +18,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var suiteLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var zipCodeLabel: UILabel!
-    @IBOutlet weak var albumsLabel: UILabel!
     @IBOutlet weak var albumsTableView: UITableView!
     
     // MARK: - PROPERITES
@@ -54,6 +53,7 @@ private extension ProfileViewController {
         setupTableView()
         registerCells()
         setupNavigationTitle()
+        setupTableViewHeader()
     }
     
     func setupTableView() {
@@ -72,6 +72,24 @@ private extension ProfileViewController {
         self.title = "Profile"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .black
+    }
+    
+    func setupTableViewHeader() {
+        let headerView = UIView()
+        headerView.backgroundColor = .white
+        let titleLabel = UILabel()
+        titleLabel.text = "My Albums"
+        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        titleLabel.textColor = .black
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerView.addSubview(titleLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 2),
+            titleLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+        ])
+        albumsTableView.tableHeaderView = headerView
+        albumsTableView.tableHeaderView?.frame.size.height = 30
     }
 }
 
@@ -93,12 +111,11 @@ extension ProfileViewController :  UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
-    //MARK: - CombineCocoa Bindings for Table View
+    //MARK: - TABLE VIEW INTERACTIONS
     
     func bindTableViewInteractions() {
         albumsTableView.didSelectRowPublisher

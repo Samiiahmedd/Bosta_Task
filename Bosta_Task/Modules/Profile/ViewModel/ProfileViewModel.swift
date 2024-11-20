@@ -29,7 +29,6 @@ class ProfileViewModel {
     init(userService: UserServicesProtocol = UserService(), albumsService: AlbumsServicesProtocol = AlbumsServices()) {
         self.userService = userService
         self.albumsService = albumsService
-        print("Albums initialized with: \(albums)")
     }
     
     // MARK: - FETCH USER
@@ -45,9 +44,10 @@ class ProfileViewModel {
                 self.isLoading.send(false)
                 switch completionResult {
                 case .finished:
+                    print(user!)
                     break
                 case .failure(let error):
-                    self.errorMessage.send(error.localizedDescription)
+                    self.handleError(error)
                 }
             }, receiveValue: { [weak self] user in
                 self?.user = user
@@ -58,7 +58,6 @@ class ProfileViewModel {
     // MARK: - FETCH ALBUMS
     
     func fetchAlbums(by userId: Int) {
-        print("Fetching albums for userId: \(userId)...") // Debugging here
         isLoading.send(true)
         errorMessage.send(nil)
         
@@ -69,14 +68,19 @@ class ProfileViewModel {
                 self.isLoading.send(false)
                 switch completionResult {
                 case .finished:
-                    print("Finished fetching albums.") // Debugging here
+                    print("Finished fetching albums.")
                 case .failure(let error):
-                    self.errorMessage.send(error.localizedDescription)
+                    self.handleError(error)
                 }
             }, receiveValue: { [weak self] albums in
-                print("Albums received: \(albums)") // Debugging here
                 self?.albums = albums
             })
             .store(in: &cancellables)
+    }
+    
+    // MARK: - ERROR HANDLING
+    
+    private func handleError(_ error: Error) {
+        errorMessage.send(error.localizedDescription)
     }
 }

@@ -15,6 +15,7 @@ class AlbumsDetailsViewModel {
     
     @Published var images: [ImagesModel] = []
     @Published var filteredImages: [ImagesModel] = []
+    private var searchQueryPublisher: PassthroughSubject<String, Never> = .init()
     var isLoading: CurrentValueSubject<Bool, Never> = .init(false)
     var errorMessage: CurrentValueSubject<String?, Never> = .init(nil)
     
@@ -27,6 +28,14 @@ class AlbumsDetailsViewModel {
     
     init(imagesServices: ImagesServicesProtocol = ImagesServices()) {
         self.imagesServices = imagesServices
+        
+        searchQueryPublisher
+            .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)
+            .sink { [weak self] query in
+                self?.updateSearchQuery(query)
+            }
+            .store(in: &cancellables)
+        
         $images
             .sink { [weak self] images in
                 self?.filteredImages = images
@@ -49,7 +58,7 @@ class AlbumsDetailsViewModel {
                 case .finished:
                     print("Finished fetching images.")
                 case .failure(let error):
-                    self.errorMessage.send(error.localizedDescription)
+                    self.handleError(error)
                 }
             }, receiveValue: { [weak self] images in
                 self?.images = images
@@ -65,6 +74,12 @@ class AlbumsDetailsViewModel {
         } else {
             filteredImages = images.filter { $0.title.lowercased().contains(query.lowercased()) }
         }
+    }
+    
+    // MARK: - ERROR HANDLING
+    
+    private func handleError(_ error: Error) {
+        errorMessage.send(error.localizedDescription)
     }
 }
 

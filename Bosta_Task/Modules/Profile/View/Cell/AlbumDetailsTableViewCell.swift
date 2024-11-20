@@ -11,8 +11,8 @@ class AlbumDetailsTableViewCell: UITableViewCell {
     
     //MARK: - PROPIRITES
     
-    static let identifier = "AlbumDetailsTableViewCell"
-
+    static let identifier = String(describing: AlbumDetailsTableViewCell.self)
+    
     //MARK: - IBOUTLETS
     
     @IBOutlet weak var albumNameLabel: UILabel!
@@ -23,7 +23,7 @@ class AlbumDetailsTableViewCell: UITableViewCell {
 extension AlbumDetailsTableViewCell {
     
     //MARK: - SETUP CELL
-
+    
     func Setup(album: AlbumsModel) {
         albumNameLabel.text = album.title
     }
