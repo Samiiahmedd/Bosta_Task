@@ -8,23 +8,19 @@ The app allows users to:
 - Share images via the native iOS share sheet.
 
 ---
-### Album List Screen
-![Album List Screen](https://j.top4top.io/p_3246sf0ud1.png)
+## Project Screens
 
-### Album Details Screen
-![Album Details Screen](https://k.top4top.io/p_3246xe61r2.png)
+<p align="center">
+  <img src="https://j.top4top.io/p_3246sf0ud1.png" alt="Album List Screen" width="200">
+  <img src="https://k.top4top.io/p_3246xe61r2.png" alt="Album Details Screen" width="200">
+  <img src="https://l.top4top.io/p_3246nskrx3.png" alt="Search Feature" width="200">
+</p>
 
-### Search Feature
-![Search Feature](https://l.top4top.io/p_3246nskrx3.png)
-
-### Image Viewer
-![Image Viewer](https://a.top4top.io/p_3246adlzp4.png)
-
-### Zoom
-![Zoom](https://b.top4top.io/p_3246p0wkb5.png)
-
-### Share Feature
-![Share](https://c.top4top.io/p_3246uy6wd6.png)
+<p align="center">
+  <img src="https://a.top4top.io/p_3246adlzp4.png" alt="Image Viewer" width="200">
+  <img src="https://b.top4top.io/p_3246p0wkb5.png" alt="Zoom" width="200">
+  <img src="https://c.top4top.io/p_3246uy6wd6.png" alt="Share Feature" width="200">
+</p>
 
 ## Features
 
